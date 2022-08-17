@@ -14,12 +14,17 @@ import {
   ScrollView,
   Image,
   VStack,
-  Heading
+  Heading,
+ AspectRatio, Center, Stack,
 } from "native-base";
 import React from "react";
 import BottomNavigation from "./components/layout/BottomNavigation";
 import HeaderNavigation from "./components/layout/HeaderNavigation";
 import Home from "./screens/Home";
+import Search from "./screens/Search";
+import BackHeader from "./components/layout/BackHeader";
+import { Rating } from "react-native-ratings";
+import { MaterialIcons } from '@expo/vector-icons';
 
 // Define the config
 const config = {
@@ -30,217 +35,406 @@ const config = {
 // extend the theme
 export const theme = extendTheme({ config });
 
-function Settings() {
+function Category() {
   return (
-    <View
-      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      _light={{
-        bg: "#FFFFFF"
-      }}
-      _dark={{
-        bg: "#0C0C0C"
-      }}
-    >
-      <Text>Home!</Text>
-      <ToggleDarkMode />
-    </View>
+    <>
+      <BackHeader />
+      <View
+        px={4}
+        style={{ flex: 1 }}
+        _light={{
+          bg: "#FFFFFF"
+        }}
+        _dark={{
+          bg: "#0C0C0C"
+        }}
+      >
+        <HStack flexWrap="wrap">
+            <Box
+              maxW="48%"
+              rounded="lg"
+              overflow="hidden"
+              borderColor="coolGray.200"
+              borderWidth="1"
+              _dark={{
+                borderColor: "coolGray.600",
+                backgroundColor: "gray.700"
+              }}
+              _web={{
+                shadow: 2,
+                borderWidth: 0
+              }}
+              _light={{
+                backgroundColor: "gray.50"
+              }}
+              p={3}
+              mr={3}
+            >
+              <Box rounded={"lg"}>
+                <AspectRatio w="100%" ratio={3/3}>
+                  <Image
+                    source={{
+                      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
+                    }}
+                    alt="image"
+                    rounded={"lg"}
+                  />
+                </AspectRatio>
+              </Box>
+              <Stack pt={1} space={3}>
+                <Stack space={4}>
+                  <Text 
+                    fontStyle={"normal"}
+                    bold
+                    fontSize={13}
+                    fontWeight={"bold"}
+                    letterSpacing={0.5}
+
+                  >
+                  Nike Air Max 270 React ENG
+                  </Text>
+                  {/* <Box h={10} w={100} >
+                  <Rating ratingCount={5} startingValue={4} readonly={true}
+                    style={{
+                      fontSize:10
+                    }}
+                  />
+                  </Box> */}
+                  <Stack space={2}>
+                  <Text
+                     fontStyle={"normal"}
+                     fontSize={12}
+                     fontWeight={700}
+                     letterSpacing={0.5}
+                    _light={{
+                      color: "violet.500"
+                    }}
+                    _dark={{
+                      color: "violet.400"
+                    }}
+                  >
+                    $460.00
+                  </Text>
+                  <HStack w={100} alignItems="center" justifyContent={"space-between"} space={2}>
+                    <Text
+                      color={"#9098B1"}
+                      fontStyle={"normal"}
+                     fontSize={10}
+                     fontWeight={400}
+                     letterSpacing={0.5}
+                     textDecorationLine="line-through"
+                    >
+                      $550.00
+                    </Text>
+                    <Text
+                     color={"#FB7181"}
+                     fontStyle={"normal"}
+                    fontSize={10}
+                    fontWeight={700}
+                    letterSpacing={0.5}
+                    >
+                      24% Off
+                    </Text>
+                    {/* <MaterialIcons name="delete-outline" size={24} color="black" /> */}
+                  </HStack>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Box>
+            <Box
+              maxW="48%"
+              rounded="lg"
+              overflow="hidden"
+              borderColor="coolGray.200"
+              borderWidth="1"
+              _dark={{
+                borderColor: "coolGray.600",
+                backgroundColor: "gray.700"
+              }}
+              _web={{
+                shadow: 2,
+                borderWidth: 0
+              }}
+              _light={{
+                backgroundColor: "gray.50"
+              }}
+              p={3}
+            >
+              <Box rounded={"lg"}>
+                <AspectRatio w="100%" ratio={3/3}>
+                  <Image
+                    source={{
+                      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
+                    }}
+                    alt="image"
+                    rounded={"lg"}
+                  />
+                </AspectRatio>
+              </Box>
+              <Stack pt={1} space={3}>
+                <Stack space={4}>
+                  <Text 
+                    fontStyle={"normal"}
+                    bold
+                    fontSize={13}
+                    fontWeight={"bold"}
+                    letterSpacing={0.5}
+
+                  >
+                  Nike Air Max 270 React ENG
+                  </Text>
+                  {/* <Box h={10} w={100} >
+                  <Rating ratingCount={5} startingValue={4} readonly={true}
+                    style={{
+                      fontSize:10
+                    }}
+                  />
+                  </Box> */}
+                  <Stack space={2}>
+                  <Text
+                     fontStyle={"normal"}
+                     fontSize={12}
+                     fontWeight={700}
+                     letterSpacing={0.5}
+                    _light={{
+                      color: "violet.500"
+                    }}
+                    _dark={{
+                      color: "violet.400"
+                    }}
+                  >
+                    $460.00
+                  </Text>
+                  <HStack w={100} alignItems="center" justifyContent={"space-between"} space={2}>
+                    <Text
+                      color={"#9098B1"}
+                      fontStyle={"normal"}
+                     fontSize={10}
+                     fontWeight={400}
+                     letterSpacing={0.5}
+                     textDecorationLine="line-through"
+                    >
+                      $550.00
+                    </Text>
+                    <Text
+                     color={"#FB7181"}
+                     fontStyle={"normal"}
+                    fontSize={10}
+                    fontWeight={700}
+                    letterSpacing={0.5}
+                    >
+                      24% Off
+                    </Text>
+                    {/* <MaterialIcons name="delete-outline" size={24} color="black" /> */}
+                  </HStack>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Box>
+            <Box
+              maxW="48%"
+              rounded="lg"
+              overflow="hidden"
+              borderColor="coolGray.200"
+              borderWidth="1"
+              _dark={{
+                borderColor: "coolGray.600",
+                backgroundColor: "gray.700"
+              }}
+              _web={{
+                shadow: 2,
+                borderWidth: 0
+              }}
+              _light={{
+                backgroundColor: "gray.50"
+              }}
+              p={3}
+              mr={3}
+            >
+              <Box rounded={"lg"}>
+                <AspectRatio w="100%" ratio={3/3}>
+                  <Image
+                    source={{
+                      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
+                    }}
+                    alt="image"
+                    rounded={"lg"}
+                  />
+                </AspectRatio>
+              </Box>
+              <Stack pt={1} space={3}>
+                <Stack space={4}>
+                  <Text 
+                    fontStyle={"normal"}
+                    bold
+                    fontSize={13}
+                    fontWeight={"bold"}
+                    letterSpacing={0.5}
+
+                  >
+                  Nike Air Max 270 React ENG
+                  </Text>
+                  {/* <Box h={10} w={100} >
+                  <Rating ratingCount={5} startingValue={4} readonly={true}
+                    style={{
+                      fontSize:10
+                    }}
+                  />
+                  </Box> */}
+                  <Stack space={2}>
+                  <Text
+                     fontStyle={"normal"}
+                     fontSize={12}
+                     fontWeight={700}
+                     letterSpacing={0.5}
+                    _light={{
+                      color: "violet.500"
+                    }}
+                    _dark={{
+                      color: "violet.400"
+                    }}
+                  >
+                    $460.00
+                  </Text>
+                  <HStack w={100} alignItems="center" justifyContent={"space-between"} space={2}>
+                    <Text
+                      color={"#9098B1"}
+                      fontStyle={"normal"}
+                     fontSize={10}
+                     fontWeight={400}
+                     letterSpacing={0.5}
+                     textDecorationLine="line-through"
+                    >
+                      $550.00
+                    </Text>
+                    <Text
+                     color={"#FB7181"}
+                     fontStyle={"normal"}
+                    fontSize={10}
+                    fontWeight={700}
+                    letterSpacing={0.5}
+                    >
+                      24% Off
+                    </Text>
+                    {/* <MaterialIcons name="delete-outline" size={24} color="black" /> */}
+                  </HStack>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Box>
+            <Box
+              maxW="48%"
+              rounded="lg"
+              overflow="hidden"
+              borderColor="coolGray.200"
+              borderWidth="1"
+              _dark={{
+                borderColor: "coolGray.600",
+                backgroundColor: "gray.700"
+              }}
+              _web={{
+                shadow: 2,
+                borderWidth: 0
+              }}
+              _light={{
+                backgroundColor: "gray.50"
+              }}
+              p={3}
+            >
+              <Box rounded={"lg"}>
+                <AspectRatio w="100%" ratio={3/3}>
+                  <Image
+                    source={{
+                      uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg"
+                    }}
+                    alt="image"
+                    rounded={"lg"}
+                  />
+                </AspectRatio>
+              </Box>
+              <Stack pt={1} space={3}>
+                <Stack space={4}>
+                  <Text 
+                    fontStyle={"normal"}
+                    bold
+                    fontSize={13}
+                    fontWeight={"bold"}
+                    letterSpacing={0.5}
+
+                  >
+                  Nike Air Max 270 React ENG
+                  </Text>
+                  {/* <Box h={10} w={100} >
+                  <Rating ratingCount={5} startingValue={4} readonly={true}
+                    style={{
+                      fontSize:10
+                    }}
+                  />
+                  </Box> */}
+                  <Stack space={2}>
+                  <Text
+                     fontStyle={"normal"}
+                     fontSize={12}
+                     fontWeight={700}
+                     letterSpacing={0.5}
+                    _light={{
+                      color: "violet.500"
+                    }}
+                    _dark={{
+                      color: "violet.400"
+                    }}
+                  >
+                    $460.00
+                  </Text>
+                  <HStack w={100} alignItems="center" justifyContent={"space-between"} space={2}>
+                    <Text
+                      color={"#9098B1"}
+                      fontStyle={"normal"}
+                     fontSize={10}
+                     fontWeight={400}
+                     letterSpacing={0.5}
+                     textDecorationLine="line-through"
+                    >
+                      $550.00
+                    </Text>
+                    <Text
+                     color={"#FB7181"}
+                     fontStyle={"normal"}
+                    fontSize={10}
+                    fontWeight={700}
+                    letterSpacing={0.5}
+                    >
+                      24% Off
+                    </Text>
+                    {/* <MaterialIcons name="delete-outline" size={24} color="black" /> */}
+                  </HStack>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Box>
+          </HStack>
+      </View>
+    </>
   );
 }
 
-function Search() {
+function Settings() {
   return (
-    <View
-      flex={1}
-      _light={{
-        bg: "#FFFFFF"
-      }}
-      _dark={{
-        bg: "#0C0C0C"
-      }}
-    >
-      <Box px={4} mt={4}>
-        <Input
-          size={"xl"}
-          variant="underlined"
-          placeholder="SEARCH PRODUCTS"
-          _focus={{
-            borderBottomColor: "black"
-          }}
-          _light={{
-            borderBottomColor:"black"
-          }}
-          _dark={{
-            borderBottomColor:'#868686'
-          }}
-        />
-      </Box>
-
-      <Box px={4} mt={6}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <HStack space={2}>
-            <Button
-              size="lg"
-              variant={"solid"}
-              borderRadius={"none"}
-              _dark={{
-                borderColor:"#3E3E3E"
-              }}
-              _light={{
-                borderColor:"black"
-              }}
-            >
-              <Text color="white">All</Text>
-            </Button>
-            <Button
-              size="lg"
-              variant={"outline"}
-              borderRadius={"none"}
-              _dark={{
-                borderColor:"#3E3E3E"
-              }}
-              _light={{
-                borderColor:"black"
-              }}
-            >
-              <Text _dark={{
-                color:'white'
-              }} _light={{
-                color:'black'
-              }}>Tops</Text>
-            </Button>
-            <Button
-              size="lg"
-              variant={"outline"}
-              borderRadius={"none"}
-              _dark={{
-                borderColor:"#3E3E3E"
-              }}
-              _light={{
-                borderColor:"black"
-              }}
-            >
-              <Text _dark={{
-                color:'white'
-              }} _light={{
-                color:'black'
-              }}>Sweatshirts</Text>
-            </Button>
-            <Button
-              size="lg"
-              variant={"outline"}
-              borderRadius={"none"}
-              _dark={{
-                borderColor:"#3E3E3E"
-              }}
-              _light={{
-                borderColor:"black"
-              }}
-            >
-              <Text _dark={{
-                color:'white'
-              }} _light={{
-                color:'black'
-              }}>Jackets</Text>
-            </Button>
-            <Button
-              size="lg"
-              variant={"outline"}
-              borderRadius={"none"}
-              _dark={{
-                borderColor:"#3E3E3E"
-              }}
-              _light={{
-                borderColor:"black"
-              }}
-            >
-              <Text _dark={{
-                color:'white'
-              }} _light={{
-                color:'black'
-              }}>Pants</Text>
-            </Button>
-          </HStack>
-        </ScrollView>
-      </Box>
-
-      <VStack px={4} mt={8} space={4}>
-        <Box rounded={"none"} borderWidth={1} borderColor={"#979797"}>
-          <HStack>
-            <Image
-              alt="image"
-              source={{
-                uri: "https://images.unsplash.com/photo-1587733861310-9f78468626a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2338&q=80"
-              }}
-              w={"34%"}
-              h={"110"}
-            />
-            <Box w={"66%"} p={4}>
-              <VStack>
-                <Heading size="sm" ml="-1">
-                Ribbed polo-Neck Jumper
-                </Heading>
-                <Text fontSize="sm" color={"#979797"} fontWeight="500" ml="-0.5" mt="-1">
-                Jack & James
-                </Text>
-                <Text pt={2} bold fontSize="md">
-                  $460.00
-                </Text>
-              </VStack>
-            </Box>
-          </HStack>
-        </Box>
-        <Box rounded={"none"} borderWidth={1} borderColor={"#979797"}>
-          <HStack>
-            <Image
-              alt="image"
-              source={{
-                uri: "https://images.unsplash.com/photo-1587733861310-9f78468626a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2338&q=80"
-              }}
-              w={"34%"}
-              h={"110"}
-            />
-            <Box w={"66%"} p={4}>
-              <VStack>
-                <Heading size="sm" ml="-1">
-                Ribbed polo-Neck Jumper
-                </Heading>
-                <Text fontSize="sm" color={"#979797"} fontWeight="500" ml="-0.5" mt="-1">
-                Jack & James
-                </Text>
-                <Text pt={2} bold fontSize="md">
-                  $460.00
-                </Text>
-              </VStack>
-            </Box>
-          </HStack>
-        </Box>
-        <Box rounded={"none"} borderWidth={1} borderColor={"#979797"}>
-          <HStack>
-            <Image
-              alt="image"
-              source={{
-                uri: "https://images.unsplash.com/photo-1587733861310-9f78468626a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2338&q=80"
-              }}
-              w={"34%"}
-              h={"110"}
-            />
-            <Box w={"66%"} p={4}>
-              <VStack>
-                <Heading size="sm" ml="-1">
-                Ribbed polo-Neck Jumper
-                </Heading>
-                <Text fontSize="sm" color={"#979797"} fontWeight="500" ml="-0.5" mt="-1">
-                Jack & James
-                </Text>
-                <Text pt={2} bold fontSize="md">
-                  $460.00
-                </Text>
-              </VStack>
-            </Box>
-          </HStack>
-        </Box>
-      </VStack>
-    </View>
+    <>
+      <BackHeader />
+      <View
+        style={{ flex: 1 }}
+        _light={{
+          bg: "#FFFFFF"
+        }}
+        _dark={{
+          bg: "#0C0C0C"
+        }}
+      >
+        <Text>Home!</Text>
+        <ToggleDarkMode />
+      </View>
+    </>
   );
 }
 
@@ -275,13 +469,23 @@ export default function App() {
           />
           <Tab.Screen
             name="Settings1"
-            component={Settings}
-            options={{ icon: "cart", unActiveIcon: "cart-outline" }}
+            component={Category}
+            options={{
+              icon: "cart",
+              unActiveIcon: "cart-outline",
+              headerShown: false
+            }}
+            screenOptions={{ headerShown: false }}
           />
           <Tab.Screen
             name="Settings2"
             component={Settings}
-            options={{ icon: "account", unActiveIcon: "account-outline" }}
+            options={{
+              icon: "account",
+              unActiveIcon: "account-outline",
+              headerShown: false
+            }}
+            screenOptions={{ headerShown: false }}
           />
         </Tab.Navigator>
       </NativeBaseProvider>
